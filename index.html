@@ -1,0 +1,898 @@
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp, CheckCircle, Clock, Users, FileText, Download } from 'lucide-react';
+
+const Week1LessonPlan = () => {
+  const [expandedSection, setExpandedSection] = useState(null);
+
+  const toggleSection = (section) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  const sections = [
+    {
+      id: 'pre-meeting',
+      title: 'Pre-Meeting Preparation (Send 2 Days Before)',
+      icon: <Clock className="w-5 h-5" />,
+      content: (
+        <div className="space-y-4">
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-blue-900 mb-2">Email to Participants</h4>
+            <div className="bg-white p-3 rounded text-sm">
+              <p className="mb-2"><strong>Subject:</strong> 🎬 Welcome to Netplix Project Syncplay - Week 1 Prep!</p>
+              <p className="text-gray-700">Hi Amazing Team,</p>
+              <p className="text-gray-700 mt-2">We're starting our exciting Business Analysis project tomorrow! Here's what to do before our meeting:</p>
+              <ul className="list-disc ml-5 mt-2 text-gray-700 space-y-1">
+                <li>Watch: "What is Netflix Party/Teleparty?" (YouTube - 5 min)</li>
+                <li>Think: When was the last time you watched something with friends/family remotely?</li>
+                <li>Bring: Your curiosity and questions!</li>
+              </ul>
+              <p className="text-gray-700 mt-2">No preparation stress - just come ready to explore! 💪</p>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-yellow-900 mb-2">Instructor Prep Checklist</h4>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 mr-2 mt-1 text-yellow-700" />
+                <span>Prepare demo video of Disney+ GroupWatch or Teleparty</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 mr-2 mt-1 text-yellow-700" />
+                <span>Print/share templates: Stakeholder Map, Problem Statement, Market Research</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 mr-2 mt-1 text-yellow-700" />
+                <span>Set up shared Google Drive folder with all templates</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 mr-2 mt-1 text-yellow-700" />
+                <span>Create breakout groups (3-4 people each) in advance</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 mr-2 mt-1 text-yellow-700" />
+                <span>Prepare sample competitive analysis of 2 competitors</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'meeting',
+      title: 'Live Meeting Session (90 Minutes)',
+      icon: <Users className="w-5 h-5" />,
+      content: (
+        <div className="space-y-6">
+          {/* Opening */}
+          <div className="border-l-4 border-purple-500 pl-4">
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-purple-900">Opening: Welcome & Warm-up</h4>
+              <span className="text-sm bg-purple-100 px-3 py-1 rounded-full">15 minutes</span>
+            </div>
+            <div className="bg-purple-50 p-4 rounded-lg space-y-3">
+              <div>
+                <p className="font-medium text-purple-900">Icebreaker Activity</p>
+                <p className="text-sm text-gray-700">"Share your name, your favorite Netflix show, and one word describing how you feel about this project"</p>
+                <p className="text-xs text-gray-600 mt-1 italic">💡 Tip: Go first to model vulnerability and enthusiasm!</p>
+              </div>
+              
+              <div>
+                <p className="font-medium text-purple-900">Project Vision</p>
+                <ul className="text-sm text-gray-700 space-y-1 ml-4 list-disc">
+                  <li>Show inspiring video: "Netflix GroupWatch Features Around the World"</li>
+                  <li>Explain: "We're not coding - we're analyzing whether Netflix should build this!"</li>
+                  <li>Share: "By Nov 3, you'll have a portfolio-ready business case"</li>
+                </ul>
+              </div>
+
+              <div className="bg-purple-100 p-3 rounded">
+                <p className="text-sm font-medium text-purple-900">Key Message</p>
+                <p className="text-sm text-gray-700">"You don't need to be technical. You need to think like a business person: Will this make money? Will users love it? Is it worth building?"</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Learning */}
+          <div className="border-l-4 border-blue-500 pl-4">
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-blue-900">Learning Block 1: Understanding the Business Problem</h4>
+              <span className="text-sm bg-blue-100 px-3 py-1 rounded-full">25 minutes</span>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-lg space-y-3">
+              <div>
+                <p className="font-medium text-blue-900">Mini-Lecture (10 min)</p>
+                <ul className="text-sm text-gray-700 space-y-2 ml-4 list-disc">
+                  <li><strong>The Pandemic Changed Everything:</strong> People couldn't watch together in person</li>
+                  <li><strong>Current Pain Point:</strong> "We want to watch together but we're far apart"</li>
+                  <li><strong>Business Opportunity:</strong> Increased engagement = More subscriptions = More revenue</li>
+                  <li><strong>Real Examples:</strong> Disney+ GroupWatch, Amazon Prime Watch Party, Teleparty (Chrome extension)</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-medium text-blue-900">Interactive Demo (10 min)</p>
+                <p className="text-sm text-gray-700">Show live demo of one competitor feature. Pause and ask:</p>
+                <ul className="text-sm text-gray-700 space-y-1 ml-4 list-disc">
+                  <li>"What do you like about this?"</li>
+                  <li>"What's missing?"</li>
+                  <li>"Would you use this? Why/why not?"</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-blue-900 mb-2">Group Discussion (5 min)</p>
+                <p className="text-sm text-gray-700 italic">"Think of a time you wanted to watch something with someone far away. What was frustrating about it?"</p>
+                <p className="text-xs text-gray-600 mt-2">Capture responses on shared screen/whiteboard</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Workshop Activity */}
+          <div className="border-l-4 border-green-500 pl-4">
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-green-900">Workshop Activity: Brainstorming Session</h4>
+              <span className="text-sm bg-green-100 px-3 py-1 rounded-full">20 minutes</span>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg space-y-3">
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-green-900 mb-2">Breakout Groups (15 min)</p>
+                <p className="text-sm text-gray-700 mb-2">Divide into groups of 3-4. Each group answers:</p>
+                <ol className="text-sm text-gray-700 space-y-2 ml-4 list-decimal">
+                  <li><strong>Who would use Syncplay?</strong> (Age, lifestyle, location)</li>
+                  <li><strong>When would they use it?</strong> (Occasions, frequency)</li>
+                  <li><strong>Why would they choose Netflix Syncplay over competitors?</strong></li>
+                  <li><strong>What features are absolutely essential?</strong></li>
+                </ol>
+                <p className="text-xs text-gray-600 mt-2">📝 Capture in Google Doc (template provided)</p>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-green-900 mb-2">Share Back (5 min)</p>
+                <p className="text-sm text-gray-700">Each group shares 1-2 key insights. Instructor captures themes.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Learning Block 2 */}
+          <div className="border-l-4 border-orange-500 pl-4">
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-orange-900">Learning Block 2: Introduction to BA Deliverables</h4>
+              <span className="text-sm bg-orange-100 px-3 py-1 rounded-full">20 minutes</span>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg space-y-3">
+              <div>
+                <p className="font-medium text-orange-900 mb-2">Show & Tell: What You'll Create This Week</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="bg-white p-3 rounded">
+                    <p className="font-medium text-orange-900 text-sm">Market Research Report</p>
+                    <p className="text-xs text-gray-600 mt-1">Who are the competitors? What do they offer? What's the market size?</p>
+                  </div>
+                  <div className="bg-white p-3 rounded">
+                    <p className="font-medium text-orange-900 text-sm">Problem Statement</p>
+                    <p className="text-xs text-gray-600 mt-1">What problem are we solving? For whom? Why does it matter?</p>
+                  </div>
+                  <div className="bg-white p-3 rounded">
+                    <p className="font-medium text-orange-900 text-sm">Stakeholder Map</p>
+                    <p className="text-xs text-gray-600 mt-1">Who cares about this? What do they want? How do we communicate?</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-orange-900 mb-2">Template Walkthrough (10 min)</p>
+                <p className="text-sm text-gray-700">Show each template on screen. Explain each section. Answer questions.</p>
+                <p className="text-xs text-gray-600 mt-2 italic">💡 Emphasize: "These templates make it easy - you just fill in the blanks!"</p>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-orange-900 mb-2">Live Example (5 min)</p>
+                <p className="text-sm text-gray-700">Fill out one section together as a group (e.g., write one competitor in the comparison matrix)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Wrap-up */}
+          <div className="border-l-4 border-pink-500 pl-4">
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-pink-900">Wrap-up & Action Planning</h4>
+              <span className="text-sm bg-pink-100 px-3 py-1 rounded-full">10 minutes</span>
+            </div>
+            <div className="bg-pink-50 p-4 rounded-lg space-y-3">
+              <div>
+                <p className="font-medium text-pink-900 mb-2">Assign This Week's Work</p>
+                <div className="bg-white p-3 rounded space-y-2">
+                  <div className="flex items-start">
+                    <CheckCircle className="w-4 h-4 mr-2 mt-1 text-pink-600" />
+                    <div>
+                      <p className="text-sm font-medium">Task 1: Research 3 Competitors</p>
+                      <p className="text-xs text-gray-600">Disney+ GroupWatch, Amazon Prime Watch Party, Teleparty. Fill in comparison matrix.</p>
+                      <p className="text-xs text-gray-500">Time: 2-3 hours</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="w-4 h-4 mr-2 mt-1 text-pink-600" />
+                    <div>
+                      <p className="text-sm font-medium">Task 2: User Interviews</p>
+                      <p className="text-xs text-gray-600">Talk to 3-5 friends/family about their watch-together experiences. Use interview guide.</p>
+                      <p className="text-xs text-gray-500">Time: 2-3 hours</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="w-4 h-4 mr-2 mt-1 text-pink-600" />
+                    <div>
+                      <p className="text-sm font-medium">Task 3: Complete Templates</p>
+                      <p className="text-xs text-gray-600">Problem Statement Doc, Stakeholder Map, Market Research Report (draft)</p>
+                      <p className="text-xs text-gray-500">Time: 2-3 hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-medium text-pink-900 mb-2">Buddy System</p>
+                <p className="text-sm text-gray-700">Assign pairs. "Check in with your buddy at least once this week!"</p>
+              </div>
+
+              <div className="bg-pink-100 p-3 rounded">
+                <p className="font-medium text-pink-900 mb-1">Encouragement Moment</p>
+                <p className="text-sm text-gray-700 italic">"You've already done the hardest part - you showed up! This week, you're real business analysts doing real research. I'm so excited to see what you discover!"</p>
+              </div>
+
+              <div>
+                <p className="font-medium text-pink-900 mb-2">Q&A</p>
+                <p className="text-sm text-gray-700">Open floor for any questions. Remind about office hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'deliverables',
+      title: 'Week 1 Deliverables & Templates',
+      icon: <FileText className="w-5 h-5" />,
+      content: (
+        <div className="space-y-4">
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
+            <h4 className="font-semibold text-blue-900 mb-3 flex items-center">
+              <Download className="w-5 h-5 mr-2" />
+              Deliverable 1: Market Research Report Template
+            </h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <div>
+                <p className="font-medium text-gray-800">Document Structure (2-3 pages):</p>
+                <ol className="ml-5 list-decimal space-y-2 mt-2 text-gray-700">
+                  <li>
+                    <strong>Executive Summary</strong>
+                    <p className="text-xs text-gray-600 ml-2">3-4 sentences: What did you find? What's the opportunity?</p>
+                  </li>
+                  <li>
+                    <strong>Market Overview</strong>
+                    <p className="text-xs text-gray-600 ml-2">Streaming market size, growth trends, watch-together features adoption</p>
+                  </li>
+                  <li>
+                    <strong>Competitive Analysis</strong>
+                    <p className="text-xs text-gray-600 ml-2">Comparison matrix (see below)</p>
+                  </li>
+                  <li>
+                    <strong>Target Audience</strong>
+                    <p className="text-xs text-gray-600 ml-2">Who uses watch-together features? Demographics, behaviors</p>
+                  </li>
+                  <li>
+                    <strong>Key Findings & Opportunities</strong>
+                    <p className="text-xs text-gray-600 ml-2">3-5 bullet points of insights</p>
+                  </li>
+                </ol>
+              </div>
+              
+              <div className="bg-blue-50 p-3 rounded">
+                <p className="font-medium text-blue-900 mb-2">Competitive Comparison Matrix:</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-blue-200">
+                        <th className="border border-blue-300 p-2">Feature</th>
+                        <th className="border border-blue-300 p-2">Disney+ GroupWatch</th>
+                        <th className="border border-blue-300 p-2">Amazon Watch Party</th>
+                        <th className="border border-blue-300 p-2">Teleparty</th>
+                        <th className="border border-blue-300 p-2">Netflix (Current)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="border border-blue-300 p-2">Max Participants</td>
+                        <td className="border border-blue-300 p-2">7</td>
+                        <td className="border border-blue-300 p-2">100</td>
+                        <td className="border border-blue-300 p-2">Unlimited</td>
+                        <td className="border border-blue-300 p-2">N/A</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-blue-300 p-2">Chat Feature</td>
+                        <td className="border border-blue-300 p-2">❌</td>
+                        <td className="border border-blue-300 p-2">✅</td>
+                        <td className="border border-blue-300 p-2">✅</td>
+                        <td className="border border-blue-300 p-2">❌</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-blue-300 p-2">Sync Accuracy</td>
+                        <td className="border border-blue-300 p-2">[Research]</td>
+                        <td className="border border-blue-300 p-2">[Research]</td>
+                        <td className="border border-blue-300 p-2">[Research]</td>
+                        <td className="border border-blue-300 p-2">N/A</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-blue-300 p-2">Ease of Setup</td>
+                        <td className="border border-blue-300 p-2">[Your rating]</td>
+                        <td className="border border-blue-300 p-2">[Your rating]</td>
+                        <td className="border border-blue-300 p-2">[Your rating]</td>
+                        <td className="border border-blue-300 p-2">N/A</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xs text-gray-600 mt-2 italic">Add more rows: Video/Audio call, Reactions, Mobile support, Pricing, etc.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
+            <h4 className="font-semibold text-green-900 mb-3 flex items-center">
+              <Download className="w-5 h-5 mr-2" />
+              Deliverable 2: Problem Statement Document
+            </h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <div>
+                <p className="font-medium text-gray-800 mb-2">Template Structure (1 page):</p>
+                <div className="space-y-3">
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-medium text-green-900">1. Current State (What's happening now?)</p>
+                    <p className="text-xs text-gray-600 mt-1 italic">Example: "Netflix users who want to watch content with friends/family in different locations currently have no native way to synchronize their viewing experience..."</p>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-medium text-green-900">2. Problem (What's wrong with the current state?)</p>
+                    <p className="text-xs text-gray-600 mt-1 italic">Example: "This leads to fragmented experiences, reliance on third-party tools, reduced engagement, and potential subscriber churn..."</p>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-medium text-green-900">3. Impact (Who is affected and how?)</p>
+                    <ul className="text-xs text-gray-600 mt-1 ml-4 list-disc">
+                      <li>Users: Frustration, poor experience</li>
+                      <li>Netflix: Lost engagement, competitive disadvantage</li>
+                      <li>Market: Opportunity for competitors</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-medium text-green-900">4. Proposed Solution (High-level)</p>
+                    <p className="text-xs text-gray-600 mt-1 italic">Example: "Netflix Syncplay: A native watch-together feature that enables real-time synchronized viewing with integrated chat..."</p>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-medium text-green-900">5. Success Criteria (How will we know it works?)</p>
+                    <ul className="text-xs text-gray-600 mt-1 ml-4 list-disc">
+                      <li>Increase in watch time per user</li>
+                      <li>Higher engagement rates</li>
+                      <li>Positive user feedback</li>
+                      <li>Reduction in third-party tool usage</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg">
+            <h4 className="font-semibold text-purple-900 mb-3 flex items-center">
+              <Download className="w-5 h-5 mr-2" />
+              Deliverable 3: Stakeholder Map
+            </h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <p className="text-gray-700 mb-2">Identify all stakeholders and map their influence, interest, and communication needs:</p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-purple-200">
+                      <th className="border border-purple-300 p-2">Stakeholder</th>
+                      <th className="border border-purple-300 p-2">Role</th>
+                      <th className="border border-purple-300 p-2">Interest</th>
+                      <th className="border border-purple-300 p-2">Influence</th>
+                      <th className="border border-purple-300 p-2">What They Want</th>
+                      <th className="border border-purple-300 p-2">Communication</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-purple-300 p-2">Netflix Users</td>
+                      <td className="border border-purple-300 p-2">End Users</td>
+                      <td className="border border-purple-300 p-2">High</td>
+                      <td className="border border-purple-300 p-2">Medium</td>
+                      <td className="border border-purple-300 p-2">Easy, fun watch-together</td>
+                      <td className="border border-purple-300 p-2">Surveys, feedback</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-purple-300 p-2">Product Team</td>
+                      <td className="border border-purple-300 p-2">Builders</td>
+                      <td className="border border-purple-300 p-2">High</td>
+                      <td className="border border-purple-300 p-2">High</td>
+                      <td className="border border-purple-300 p-2">Clear requirements</td>
+                      <td className="border border-purple-300 p-2">Weekly meetings</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-purple-300 p-2">Executive Team</td>
+                      <td className="border border-purple-300 p-2">Decision Makers</td>
+                      <td className="border border-purple-300 p-2">Medium</td>
+                      <td className="border border-purple-300 p-2">Very High</td>
+                      <td className="border border-purple-300 p-2">ROI, business case</td>
+                      <td className="border border-purple-300 p-2">Exec presentations</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-purple-300 p-2">Engineering</td>
+                      <td className="border border-purple-300 p-2">Implementers</td>
+                      <td className="border border-purple-300 p-2">High</td>
+                      <td className="border border-purple-300 p-2">High</td>
+                      <td className="border border-purple-300 p-2">Technical feasibility</td>
+                      <td className="border border-purple-300 p-2">Tech specs, meetings</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-purple-300 p-2">[Add more]</td>
+                      <td className="border border-purple-300 p-2">...</td>
+                      <td className="border border-purple-300 p-2">...</td>
+                      <td className="border border-purple-300 p-2">...</td>
+                      <td className="border border-purple-300 p-2">...</td>
+                      <td className="border border-purple-300 p-2">...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div className="bg-purple-50 p-3 rounded mt-3">
+                <p className="font-medium text-purple-900 mb-2">Who else to consider?</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc space-y-1">
+                  <li>Marketing Team - How to promote?</li>
+                  <li>Customer Support - What issues might arise?</li>
+                  <li>Legal/Compliance - Privacy, terms of use</li>
+                  <li>Content Licensing - Rights implications</li>
+                  <li>Finance - Budget approval</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+            <h4 className="font-semibold text-orange-900 mb-3 flex items-center">
+              <Download className="w-5 h-5 mr-2" />
+              Bonus: User Interview Guide
+            </h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <p className="text-gray-700 mb-2">Use this script when interviewing friends/family:</p>
+              
+              <div className="space-y-3">
+                <div className="bg-orange-50 p-3 rounded">
+                  <p className="font-medium text-orange-900">Introduction:</p>
+                  <p className="text-xs text-gray-600 italic">"Hi! I'm working on a project about how people watch movies/shows together. Can I ask you a few questions? It'll take about 10 minutes."</p>
+                </div>
+                
+                <div className="bg-orange-50 p-3 rounded">
+                  <p className="font-medium text-orange-900">Questions:</p>
+                  <ol className="text-xs text-gray-600 ml-4 list-decimal space-y-2 mt-2">
+                    <li>How often do you watch Netflix/streaming content? (Daily/Weekly/Monthly)</li>
+                    <li>Do you have friends/family who live far away? Who?</li>
+                    <li>Have you ever wanted to watch something together with someone who wasn't physically with you?</li>
+                    <li>If yes, what did you do? (Called on phone, texted during, used any app?)</li>
+                    <li>What was frustrating about that experience?</li>
+                    <li>If there was a feature that let you watch synchronized with friends, would you use it? Why?</li>
+                    <li>What features would make it better? (Chat, video call, reactions?)</li>
+                    <li>Who would you most want to use this with? (Partner, friends, family?)</li>
+                    <li>How much would you pay for this feature? (Nothing/Small fee/Premium)</li>
+                    <li>Any other thoughts about watching content together remotely?</li>
+                  </ol>
+                </div>
+                
+                <div className="bg-orange-50 p-3 rounded">
+                  <p className="font-medium text-orange-900">Closing:</p>
+                  <p className="text-xs text-gray-600 italic">"Thank you so much! This really helps me understand what people need. Can I follow up if I have more questions?"</p>
+                </div>
+                
+                <div className="bg-orange-100 p-3 rounded">
+                  <p className="font-medium text-orange-900 mb-1">💡 Interview Tips:</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc space-y-1">
+                    <li>Take notes during or immediately after</li>
+                    <li>Listen more than you talk</li>
+                    <li>Ask "why?" to dig deeper</li>
+                    <li>Don't lead them to answers you want</li>
+                    <li>Note exact quotes - they're gold!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'support',
+      title: 'Mid-Week Support & Resources',
+      icon: <Users className="w-5 h-5" />,
+      content: (
+        <div className="space-y-4">
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-blue-900 mb-3">Office Hours Schedule</h4>
+            <div className="space-y-3">
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-blue-900">Wednesday (Day 3): 6:00 PM - 6:30 PM</p>
+                <p className="text-sm text-gray-700 mt-1"><strong>Focus:</strong> Research help & template questions</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc mt-2">
+                  <li>Stuck on competitor research?</li>
+                  <li>Not sure how to fill templates?</li>
+                  <li>Questions about interviews?</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-blue-900">Friday (Day 5): 6:00 PM - 6:30 PM</p>
+                <p className="text-sm text-gray-700 mt-1"><strong>Focus:</strong> Document review & final touches</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc mt-2">
+                  <li>Review your drafts together</li>
+                  <li>Formatting help</li>
+                  <li>Boost confidence before submission</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-green-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-green-900 mb-3">WhatsApp/Slack Support</h4>
+            <div className="space-y-3">
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-green-900 mb-2">Channel Structure:</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-start">
+                    <span className="bg-green-200 px-2 py-1 rounded text-xs mr-2">#general</span>
+                    <span className="text-gray-700">Questions, announcements, group discussion</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="bg-green-200 px-2 py-1 rounded text-xs mr-2">#wins</span>
+                    <span className="text-gray-700">Celebrate every accomplishment!</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="bg-green-200 px-2 py-1 rounded text-xs mr-2">#help</span>
+                    <span className="text-gray-700">Stuck? Ask here! Someone will help</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="bg-green-200 px-2 py-1 rounded text-xs mr-2">#resources</span>
+                    <span className="text-gray-700">Useful articles, videos, templates</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-green-900 mb-2">Daily Check-in (Optional):</p>
+                <p className="text-sm text-gray-700">Post in #general:</p>
+                <p className="text-xs text-gray-600 italic mt-1">"Today I'm working on: [task]"</p>
+                <p className="text-xs text-gray-600 italic">"My goal is to finish: [specific deliverable]"</p>
+                <p className="text-xs text-gray-500 mt-2">This keeps everyone accountable and connected!</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-purple-900 mb-3">Resource Library</h4>
+            <div className="space-y-2">
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-purple-900 text-sm">📚 Reading Materials</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc mt-2 space-y-1">
+                  <li>"How to Do Competitive Analysis" - Article (10 min read)</li>
+                  <li>"Writing Great Problem Statements" - Guide (8 min read)</li>
+                  <li>"Stakeholder Mapping 101" - Tutorial (12 min read)</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-purple-900 text-sm">🎥 Video Tutorials</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc mt-2 space-y-1">
+                  <li>"Competitor Research in 30 Minutes" - Walkthrough</li>
+                  <li>"Conducting User Interviews" - Best practices</li>
+                  <li>"Creating Professional Documents" - Formatting tips</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-3 rounded">
+                <p className="font-medium text-purple-900 text-sm">🔗 Useful Links</p>
+                <ul className="text-xs text-gray-600 ml-4 list-disc mt-2 space-y-1">
+                  <li>Disney+ GroupWatch demo video</li>
+                  <li>Amazon Prime Watch Party help page</li>
+                  <li>Teleparty website and features</li>
+                  <li>Streaming market statistics</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-yellow-900 mb-3">Buddy System Guidelines</h4>
+            <div className="bg-white p-3 rounded">
+              <p className="text-sm text-gray-700 mb-3">Check in with your buddy at least twice this week:</p>
+              <div className="space-y-3">
+                <div>
+                  <p className="font-medium text-yellow-900 text-sm">Mid-Week Check (Wednesday)</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1 space-y-1">
+                    <li>"How's your research going?"</li>
+                    <li>"What have you found so far?"</li>
+                    <li>"Anything you're stuck on?"</li>
+                    <li>Share tips and resources</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="font-medium text-yellow-900 text-sm">Pre-Submission Review (Saturday/Sunday)</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1 space-y-1">
+                    <li>Exchange drafts for feedback</li>
+                    <li>Check each other's work</li>
+                    <li>Proofread documents</li>
+                    <li>Cheer each other on!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'submission',
+      title: 'End of Week Submission & Next Steps',
+      icon: <CheckCircle className="w-5 h-5" />,
+      content: (
+        <div className="space-y-4">
+          <div className="bg-green-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-green-900 mb-3">Submission Checklist (Due: Sunday, Oct 6 by 11:59 PM)</h4>
+            <div className="bg-white p-4 rounded space-y-3">
+              <div className="flex items-start">
+                <input type="checkbox" className="mt-1 mr-3" />
+                <div>
+                  <p className="font-medium text-gray-800 text-sm">Market Research Report (2-3 pages)</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1">
+                    <li>Completed competitive comparison matrix</li>
+                    <li>Analysis of 3 competitors</li>
+                    <li>Key findings documented</li>
+                    <li>Professional formatting</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <input type="checkbox" className="mt-1 mr-3" />
+                <div>
+                  <p className="font-medium text-gray-800 text-sm">Problem Statement Document (1 page)</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1">
+                    <li>All 5 sections completed</li>
+                    <li>Clear, concise writing</li>
+                    <li>Properly formatted</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <input type="checkbox" className="mt-1 mr-3" />
+                <div>
+                  <p className="font-medium text-gray-800 text-sm">Stakeholder Map (1 page)</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1">
+                    <li>At least 6-8 stakeholders identified</li>
+                    <li>All columns filled</li>
+                    <li>Communication strategy outlined</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <input type="checkbox" className="mt-1 mr-3" />
+                <div>
+                  <p className="font-medium text-gray-800 text-sm">User Interview Notes</p>
+                  <ul className="text-xs text-gray-600 ml-4 list-disc mt-1">
+                    <li>3-5 interviews completed</li>
+                    <li>Key quotes captured</li>
+                    <li>Insights summarized</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-green-100 p-3 rounded mt-3">
+                <p className="font-medium text-green-900 text-sm mb-2">How to Submit:</p>
+                <ol className="text-xs text-gray-600 ml-4 list-decimal space-y-1">
+                  <li>Save all documents in ONE folder named: "YourName_Week1_Netplix"</li>
+                  <li>Upload to shared Google Drive</li>
+                  <li>Share link in WhatsApp/Slack #general channel</li>
+                  <li>Celebrate! 🎉 You completed Week 1!</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-blue-900 mb-3">Grading Rubric (For Your Reference)</h4>
+            <div className="bg-white p-4 rounded">
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-blue-100">
+                    <th className="border border-blue-200 p-2 text-left">Criteria</th>
+                    <th className="border border-blue-200 p-2">Points</th>
+                    <th className="border border-blue-200 p-2 text-left">What We're Looking For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-blue-200 p-2">Completeness</td>
+                    <td className="border border-blue-200 p-2 text-center">30%</td>
+                    <td className="border border-blue-200 p-2">All deliverables submitted, all sections filled</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-blue-200 p-2">Research Quality</td>
+                    <td className="border border-blue-200 p-2 text-center">30%</td>
+                    <td className="border border-blue-200 p-2">Thorough competitor analysis, meaningful user insights</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-blue-200 p-2">Clarity & Writing</td>
+                    <td className="border border-blue-200 p-2 text-center">20%</td>
+                    <td className="border border-blue-200 p-2">Clear, professional writing; easy to understand</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-blue-200 p-2">Analysis & Insights</td>
+                    <td className="border border-blue-200 p-2 text-center">20%</td>
+                    <td className="border border-blue-200 p-2">Going beyond surface level, making connections</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-xs text-gray-600 mt-3 italic">Remember: This is about learning, not perfection! Everyone who completes all deliverables will succeed.</p>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-purple-900 mb-3">Preview: What's Coming in Week 2</h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <p className="text-gray-700">Get excited! Next week we'll:</p>
+              <ul className="ml-4 list-disc space-y-2 text-gray-700">
+                <li><strong>Create User Personas</strong> - Build 3-4 detailed user profiles</li>
+                <li><strong>Design a Survey</strong> - Learn survey best practices and launch to 50+ people</li>
+                <li><strong>Write User Stories</strong> - Document what users need in BA language</li>
+                <li><strong>Analyze Data</strong> - Start working with real survey responses</li>
+              </ul>
+              <div className="bg-purple-100 p-3 rounded mt-3">
+                <p className="text-xs text-purple-900 font-medium">💡 Get Ready:</p>
+                <p className="text-xs text-gray-600 mt-1">Think about people you can survey next week. We'll need at least 50 responses, so start thinking about your network: friends, family, LinkedIn connections, Facebook groups, etc.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-pink-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-pink-900 mb-3">Celebration & Reflection</h4>
+            <div className="bg-white p-4 rounded space-y-3 text-sm">
+              <p className="text-gray-700 mb-2">Before submitting, take a moment to reflect:</p>
+              <div className="space-y-3">
+                <div className="bg-pink-50 p-3 rounded">
+                  <p className="font-medium text-pink-900">What I learned this week:</p>
+                  <p className="text-xs text-gray-600 italic mt-1">(Write 2-3 sentences in your submission)</p>
+                </div>
+                
+                <div className="bg-pink-50 p-3 rounded">
+                  <p className="font-medium text-pink-900">What surprised me:</p>
+                  <p className="text-xs text-gray-600 italic mt-1">(Any unexpected findings or insights?)</p>
+                </div>
+                
+                <div className="bg-pink-50 p-3 rounded">
+                  <p className="font-medium text-pink-900">What I'm proud of:</p>
+                  <p className="text-xs text-gray-600 italic mt-1">(Celebrate your achievement!)</p>
+                </div>
+                
+                <div className="bg-pink-50 p-3 rounded">
+                  <p className="font-medium text-pink-900">Questions for next week:</p>
+                  <p className="text-xs text-gray-600 italic mt-1">(What do you want to learn more about?)</p>
+                </div>
+              </div>
+              
+              <div className="bg-pink-100 p-3 rounded mt-3">
+                <p className="font-medium text-pink-900 text-center">🌟 You completed Week 1! You're officially a Business Analyst! 🌟</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  return (
+    <div className="max-w-5xl mx-auto p-6 bg-gray-50">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-lg mb-6 shadow-lg">
+        <h1 className="text-3xl font-bold mb-2">Netplix Project Syncplay</h1>
+        <h2 className="text-xl mb-4">Week 1 Detailed Lesson Plan</h2>
+        <div className="flex flex-wrap gap-4 text-sm">
+          <div className="flex items-center">
+            <Clock className="w-4 h-4 mr-2" />
+            <span>Sept 30 - Oct 6, 2025</span>
+          </div>
+          <div className="flex items-center">
+            <Users className="w-4 h-4 mr-2" />
+            <span>Career Returnee Women</span>
+          </div>
+          <div className="flex items-center">
+            <FileText className="w-4 h-4 mr-2" />
+            <span>3 Main Deliverables</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h3 className="text-xl font-bold text-gray-800 mb-3">Week 1 Theme: Understanding the Problem</h3>
+        <p className="text-gray-700 mb-4">
+          This week is all about discovery and research. You'll learn to think like a business analyst by researching the market, 
+          understanding user needs, and documenting the problem we're solving.
+        </p>
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <p className="font-semibold text-blue-900 mb-2">By the end of this week, you will:</p>
+          <ul className="space-y-1 text-sm text-gray-700">
+            <li className="flex items-start">
+              <CheckCircle className="w-4 h-4 mr-2 mt-1 text-blue-600 flex-shrink-0" />
+              <span>Understand what Netflix Syncplay is and why it matters</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="w-4 h-4 mr-2 mt-1 text-blue-600 flex-shrink-0" />
+              <span>Know how to research competitors systematically</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="w-4 h-4 mr-2 mt-1 text-blue-600 flex-shrink-0" />
+              <span>Be able to conduct user interviews professionally</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="w-4 h-4 mr-2 mt-1 text-blue-600 flex-shrink-0" />
+              <span>Create professional business analysis documents</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircle className="w-4 h-4 mr-2 mt-1 text-blue-600 flex-shrink-0" />
+              <span>Feel confident that you can do this! 💪</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        {sections.map((section) => (
+          <div key={section.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <button
+              onClick={() => toggleSection(section.id)}
+              className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="text-purple-600">{section.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-800">{section.title}</h3>
+              </div>
+              {expandedSection === section.id ? (
+                <ChevronUp className="w-5 h-5 text-gray-500" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-gray-500" />
+              )}
+            </button>
+            {expandedSection === section.id && (
+              <div className="p-6 border-t border-gray-200 bg-gray-50">
+                {section.content}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-200">
+        <h3 className="text-xl font-bold text-gray-800 mb-3">🎯 Success Mantra for Week 1</h3>
+        <p className="text-lg text-gray-700 italic text-center font-medium">
+          "I showed up. I researched. I documented. I'm a Business Analyst!"
+        </p>
+        <p className="text-sm text-gray-600 text-center mt-3">
+          Remember: Every expert was once a beginner. You've got this! 💪✨
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Week1LessonPlan;
